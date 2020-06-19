@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <title>menu</title>
+    <style type="text/css">
+        * {
+            /*消除網頁邊框*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .header {
+            height: 50px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        .btn {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            display: block;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        
+        .btn span {
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #aaa;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #aaa, 0px -8px 0px #aaa;
+        }
+        
+        nav {
+            width: 40%;
+            height: 100vh;
+            background-color: #282923;
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #FF5151;
+            padding: 10px 20px;
+            border-bottom: 1px solid#a6e22e;
+        }
+        
+        #menu {
+            position: absolute;
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        @media screen and (min-width: 768px) {
+            .btn {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            .navv {
+                position: relative;
+                float: right;
+                display: flex;
+                width: 45%;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            .navb {
+                position: relative;
+                float: left;
+                display: flex;
+                width: 30%;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                text-align: center;
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+        
+        .rwdTable {
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+        }
+        
+        .rwdTr,
+        .rwdTitle_gorup {
+            display: table-row;
+        }
+        
+        .rwdTh,
+        .rwdTd {
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        
+        .rwdTr:nth-of-type(odd),
+        .rwdTitle_gorup:only-of-type(odd) {
+            background-color: #eaeaea;
+        }
+        
+        .rwdth {
+            background-color: #188EBE;
+            color: #ffffff;
+        }
+        
+        @media(max-width: 900px) {
+            .rwdTable {
+                border: 1px solid #188EBE;
+            }
+            .rwdTable {
+                border-spacing: 0px;
+            }
+            .rwdTr:first-of-type {
+                display: none;
+            }
+            .rwdTd {
+                display: table;
+                padding: 0;
+            }
+            .rwdTd:before {
+                content: attr(data-th);
+                display: table-cell;
+                font-weight: bold;
+                color: #fff;
+                padding: 3px 10px;
+                white-space: nowrap;
+                text-align: center !important;
+                width: 60px;
+                background-color: #188e;
+                vertical-align: top;
+            }
+            .rwdTd span {
+                padding: 3px 10px;
+                display: inline-block;
+            }
+            .rwdTr:nth-of-type(odd),
+            .rwdTitle_gorup:nth-of-type(odd) {
+                background-color: #e8f6ff;
+            }
+            .btn {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            .navv {
+                position: relative;
+                float: right;
+                display: flex;
+                width: 45%;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            .navb {
+                position: relative;
+                float: left;
+                display: flex;
+                width: 30%;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                text-align: center;
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+        
+        .rwdTable {
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+        }
+        
+        .rwdTr,
+        .rwdTitle_gorup {
+            display: table-row;
+        }
+        
+        .rwdTh,
+        .rwdTd {
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        
+        .rwdTr:nth-of-type(odd),
+        .rwdTitle_gorup:only-of-type(odd) {
+            background-color: #eaeaea;
+        }
+        
+        .rwdth {
+            background-color: #188EBE;
+            color: #ffffff;
+        }
+    </style>
+
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+
+        </h1>
+        <label for="menu" class="btn"> 
+            <span>選單</span>
+        </label>
+        <nav>
+            <a href="https://forum.gamer.com.tw/C.php?bsn=7650&snA=988530">各大BOSS血量</a>
+            <a href="https://forum.gamer.com.tw/C.php?bsn=7650&snA=1005772">角色戰地傳授分析</a>
+            <a href="https://tw.beanfun.com/maplestory/main.aspx">遊戲官網</a>
+        </nav>
+    </div>
+    <div class="rwdTable">
+        <div class="rwdTr">
+            <div class="rwdTh">新楓之谷遊戲攻略</div>
+        </div>
+        <div class="rwdTr">
+            <img src="C:\Users\user\Desktop\楓之谷1.jpg" alt="" width="740" height="500">
+
+            <img src="C:\Users\user\Desktop\楓之谷成就.jpg" width="740" height="500">
+
+        </div>
+
+        <div class=" rwdTr ">
+            <nav class="navb">
+                <a href="https://home.gamer.com.tw/creationDetail.php?sn=4076044 ">  新手入坑職業分析 </a>
+            </nav>
+            <nav class="navv">
+                <a href="https://home.gamer.com.tw/creationDetail.php?sn=3954249"> 成就系統 </a>
+            </nav>
+
+
+
+
+
+
+
+            <div class="rwdTd "><span></span></div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
